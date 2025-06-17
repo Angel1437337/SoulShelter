@@ -1,0 +1,83 @@
+/* Base Font */
+body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Footer Container */
+  .soul-footer {
+    background-color: #fff4e6; /* soft light orange */
+    color: #4b2c20; /* earthy brown for text */
+    padding: 40px 20px 20px;
+    border-top: 5px solid #f5b971; /* warm peach accent */
+  }
+  
+  /* Flex Layout */
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Section Headings */
+  .soul-footer h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #f57c00; /* main orange */
+  }
+  
+  /* Social Media */
+  .social-icons a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 12px;
+    color: #f57c00;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #e65c00;
+  }
+  
+  /* Sign-Up Form */
+  .signup p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .signup input[type="email"] {
+    padding: 8px 12px;
+    width: 200px;
+    max-width: 100%;
+    border: 1px solid #d9a156;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  
+  .signup button {
+    padding: 8px 16px;
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup button:hover {
+    background-color: #e56600;
+  }
+  
+  /* Bottom Text */
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #7a5b4a;
+  }
+  
+  

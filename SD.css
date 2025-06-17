@@ -1,0 +1,19 @@
+select {
+    padding: 0.6rem 1rem;
+    margin-left: 1rem;
+    border: 2px solid #ffb3d1;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  .map-section {
+    padding: 2rem;
+    background-color: #f9eaf3;
+    margin-top: 2rem;
+  }
+  
+  .shelter-card a {
+    text-decoration: none;
+    color: #ad1c8e;
+  }
+  
