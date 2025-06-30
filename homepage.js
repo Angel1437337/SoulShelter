@@ -1,48 +1,86 @@
-<!-- Header Section -->
-<head>
-  <meta charset="UTF-8">
-  <title>Soul Shelter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-
-  <header class="header">
-    <div class="top-row">
-      <div class="logo">🐾 Soul Shelter</div>
-
-      <form class="search-bar">
-        <input type="text" placeholder="Search for pets, shelters, help...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </form>
-
-      <div class="user-area">
-        <a href="#" class="login-btn">Login</a>
-        <a href="#" class="signup-btn">Sign Up</a>
-        <div class="profile hidden">
-          <img src="images/logo.png" alt="Profile" class="profile-pic">
-          <span class="username">Hi, User!</span>
-        </div>
-        <a href="admin.html" class="admin-btn hidden">Admin Panel</a>
-      </div>
-    </div>
-
-    <nav class="nav-bar">
-      <a href="#">Homepage</a>
-      <a href="#">Adopt a Pet!</a>
-      <a href="#">Report a Stray!</a>
-      <a href="#">FAQ</a>
-      <div class="dropdown">
-        <a href="#">More ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Shelter Directory</a>
-          <a href="#">Events & Activities</a>
-          <a href="#">Our Blog</a>
-          <a href="#">Donations & Volunteering</a>
-          <a href="#">Lost and Found</a>
-        </div>
-      </div>
-    </nav>
-  </header> 
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.arrow.left');
+  const nextBtn = document.querySelector('.arrow.right');
+  let currentIndex = 0;
   
+  function showSlide(index) {
+    if (index < 0) {
+      currentIndex = slides.length - 1;
+    } else if (index >= slides.length) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    const offset = -currentIndex * 100;
+    const bannerHighlights = document.querySelector('.banner-highlights');
+    bannerHighlights.computedStyleMap.transform = translateX(${offset}%);
+    dots.forEach((dot, i) => {
+      if(i === currentIndex) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+  }
+  
+  prevBtn.addEventListener('click', () => {
+    showSlide(currentIndex - 1);
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    showSlide(currentIndex + 1);
+  });
+  
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      showSlide(i);
+    });
+  });
+  
+  showSlide(currentIndex);
+  
+  
+  const navLinks = document.querySelectorAll('.nav-bar > a');
+  const dropdownLinks = document.querySelectorAll('.dropdown-content > a');
+  
+  function clearActiveNav() {
+    navLinks.forEach(link => link.classList.remove('active'));
+    dropdownLinks.forEach(link => link.classList.remove('active'));
+  }
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if(link.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+      clearActiveNav();
+      link.classList.add('active');
+    });
+  });
+  
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if(link.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+      clearActiveNav();
+      link.classList.add('active');
+    });
+  });
+  
+  
+  const dropdown = document.querySelector('.dropdown');
+  if(dropdown){
+    const dropdownToggle = dropdown.querySelector('a');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    dropdownToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdownContent.classList.toggle('open');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if(!dropdown.contains(e.target)){
+        dropdownContent.classList.remove('open');
+      }
+    });
+  }
+});
